@@ -1,0 +1,29 @@
+
+Running 100 cycle aging simulation...
+This will take several minutes — please wait!
+Aging simulation complete!
+SOH 95% reached at cycle 47
+SOH 90% reached at cycle 65
+SOH 85% reached at cycle 81
+SOH 80% reached at cycle 95
+
+SOH cycle mapping: {'100': 1, '95': 47, '90': 65, '85': 81, '80': 95}
+
+--- Running HPPC simulations ---
+
+Running HPPC for SOH 100% (from cycle 1)...
+Saved HPPC SOH 100% to hppc_data\HPPC_SOH100.csv
+
+Running HPPC for SOH 95% (from cycle 47)...
+Saved HPPC SOH 95% to hppc_data\HPPC_SOH95.csv
+
+Running HPPC for SOH 90% (from cycle 65)...
+Saved HPPC SOH 90% to hppc_data\HPPC_SOH90.csv
+
+Running HPPC for SOH 85% (from cycle 81)...
+Saved HPPC SOH 85% to hppc_data\HPPC_SOH85.csv
+
+Running HPPC for SOH 80% (from cycle 95)...
+Saved HPPC SOH 80% to hppc_data\HPPC_SOH80.csv
+
+Aging + HPPC complete!

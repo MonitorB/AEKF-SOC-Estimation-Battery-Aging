@@ -1,0 +1,72 @@
+Aging simulation complete.
+  SOH 95% reached at cycle 47
+  SOH 90% reached at cycle 65
+  SOH 85% reached at cycle 81
+  SOH 80% reached at cycle 95
+
+SOH cycle map: {'100': 1, '95': 47, '90': 65, '85': 81, '80': 95}
+Actual capacities for Coulomb counting:
+  SOH 100%: 0.6806 Ah
+  SOH 95%: 0.6466 Ah
+  SOH 90%: 0.6125 Ah
+  SOH 85%: 0.5785 Ah
+  SOH 80%: 0.5445 Ah
+
+Loading drive cycles...
+  UDDS: 1370 points, 1369s, peak I = 1.361A, mean I = 0.129A, net Ah = 0.0492, expected SOC drop = 7.2%
+  HWFET: 766 points, 765s, peak I = 1.361A, mean I = 0.457A, net Ah = 0.0972, expected SOC drop = 14.3%
+
+Running drive-cycle simulations at each SOH state...
+
+--- SOH 100% (from aging cycle 1) ---
+  Running UDDS...
+    [DEBUG] PyBaMM total: 15696 pts, 0 to 3113.8s. Drive cycle starts at 1744.8s
+    [DEBUG] Interpolated voltage: 3.9931 to 4.2465 V
+    Saved drive_cycle_data\UDDS_SOH100.csv  (SOC: 1.000 -> 0.928)
+  Running HWFET...
+    [DEBUG] PyBaMM total: 8791 pts, 0 to 2509.8s. Drive cycle starts at 1744.8s
+    [DEBUG] Interpolated voltage: 3.8232 to 4.2425 V
+    Saved drive_cycle_data\HWFET_SOH100.csv  (SOC: 1.000 -> 0.857)
+
+--- SOH 95% (from aging cycle 47) ---
+  Running UDDS...
+    [DEBUG] PyBaMM total: 16777 pts, 0 to 5558.8s. Drive cycle starts at 4189.8s
+    [DEBUG] Interpolated voltage: 3.6457 to 4.3556 V
+    Saved drive_cycle_data\UDDS_SOH95.csv  (SOC: 1.000 -> 0.924)
+  Running HWFET...
+    [DEBUG] PyBaMM total: 9655 pts, 0 to 4954.8s. Drive cycle starts at 4189.8s
+    [DEBUG] Interpolated voltage: 3.5990 to 4.3570 V
+    Saved drive_cycle_data\HWFET_SOH95.csv  (SOC: 1.000 -> 0.850)
+
+--- SOH 90% (from aging cycle 65) ---
+  Running UDDS...
+    [DEBUG] PyBaMM total: 16637 pts, 0 to 6263.6s. Drive cycle starts at 4894.6s
+    [DEBUG] Interpolated voltage: 3.5745 to 4.3728 V
+    Saved drive_cycle_data\UDDS_SOH90.csv  (SOC: 1.000 -> 0.920)
+  Running HWFET...
+    [DEBUG] PyBaMM total: 9611 pts, 0 to 5659.6s. Drive cycle starts at 4894.6s
+    [DEBUG] Interpolated voltage: 3.5418 to 4.3962 V
+    Saved drive_cycle_data\HWFET_SOH90.csv  (SOC: 1.000 -> 0.841)
+
+--- SOH 85% (from aging cycle 81) ---
+  Running UDDS...
+    [DEBUG] PyBaMM total: 16490 pts, 0 to 7476.3s. Drive cycle starts at 6107.3s
+    [DEBUG] Interpolated voltage: 3.5256 to 4.3918 V
+    Saved drive_cycle_data\UDDS_SOH85.csv  (SOC: 1.000 -> 0.915)
+  Running HWFET...
+    [DEBUG] PyBaMM total: 9569 pts, 0 to 6872.3s. Drive cycle starts at 6107.3s
+    [DEBUG] Interpolated voltage: 3.4990 to 4.4383 V
+    Saved drive_cycle_data\HWFET_SOH85.csv  (SOC: 1.000 -> 0.832)
+
+--- SOH 80% (from aging cycle 95) ---
+  Running UDDS...
+    [DEBUG] PyBaMM total: 16444 pts, 0 to 8802.2s. Drive cycle starts at 7433.2s
+    [DEBUG] Interpolated voltage: 3.4864 to 4.4104 V
+    Saved drive_cycle_data\UDDS_SOH80.csv  (SOC: 1.000 -> 0.910)
+  Running HWFET...
+    [DEBUG] PyBaMM total: 9576 pts, 0 to 8198.2s. Drive cycle starts at 7433.2s
+    [DEBUG] Interpolated voltage: 3.4632 to 4.4746 V
+    Saved drive_cycle_data\HWFET_SOH80.csv  (SOC: 1.000 -> 0.821)
+
+Drive-cycle data generation complete!
+CSVs saved in: drive_cycle_data/

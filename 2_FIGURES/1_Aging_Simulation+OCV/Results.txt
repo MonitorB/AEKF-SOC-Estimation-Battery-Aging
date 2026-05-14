@@ -1,0 +1,54 @@
+Running 100 cycle aging simulation...
+This will take several minutes — please wait!
+Aging simulation complete!
+SOH 95% reached at cycle 47
+SOH 90% reached at cycle 65
+SOH 85% reached at cycle 81
+SOH 80% reached at cycle 95
+
+SOH cycle mapping: {'100': 1, '95': 47, '90': 65, '85': 81, '80': 95}
+Saved discharge data: soh_data\SOH_100.csv
+Saved discharge data: soh_data\SOH_95.csv
+Saved discharge data: soh_data\SOH_90.csv
+Saved discharge data: soh_data\SOH_85.csv
+Saved discharge data: soh_data\SOH_80.csv
+
+--- Running OCV tests at C/25 for each SOH state ---
+Original negative electrode active material volume fraction: 0.6000
+
+Running OCV test for SOH 100%...
+  Max capacity: 0.9339 Ah
+  SOC 100% -> OCV = 4.1478 V
+  SOC  50% -> OCV = 3.7455 V
+  SOC   0% -> OCV = 3.2174 V
+  Saved to ocv_data\OCV_SOH100.csv
+
+Running OCV test for SOH 95%...
+  Max capacity: 0.9212 Ah
+  SOC 100% -> OCV = 4.1448 V
+  SOC  50% -> OCV = 3.7397 V
+  SOC   0% -> OCV = 3.2174 V
+  Saved to ocv_data\OCV_SOH95.csv
+
+Running OCV test for SOH 90%...
+  Max capacity: 0.9084 Ah
+  SOC 100% -> OCV = 4.1389 V
+  SOC  50% -> OCV = 3.7326 V
+  SOC   0% -> OCV = 3.2177 V
+  Saved to ocv_data\OCV_SOH90.csv
+
+Running OCV test for SOH 85%...
+  Max capacity: 0.8875 Ah
+  SOC 100% -> OCV = 4.1256 V
+  SOC  50% -> OCV = 3.7273 V
+  SOC   0% -> OCV = 3.2253 V
+  Saved to ocv_data\OCV_SOH85.csv
+
+Running OCV test for SOH 80%...
+  Max capacity: 0.8438 Ah
+  SOC 100% -> OCV = 4.1182 V
+  SOC  50% -> OCV = 3.7281 V
+  SOC   0% -> OCV = 3.2386 V
+  Saved to ocv_data\OCV_SOH80.csv
+
+Aging + OCV complete!

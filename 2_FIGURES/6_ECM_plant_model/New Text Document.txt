@@ -1,0 +1,17 @@
+ SOH grid: [100.  95.  90.  85.  80.]
+  SOC grid: [0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+  R0 range: 0.1515 - 0.5208 Ohm
+  R1 range: 0.0054 - 0.0309 Ohm
+  R2 range: 0.0025 - 0.0269 Ohm
+
+Running ECM simulations...
+  UDDS SOH 100%: V RMSE =   61.2 mV, SOC RMSE =  0.00 %
+  UDDS SOH 95%: V RMSE =   57.8 mV, SOC RMSE =  0.00 %
+  UDDS SOH 90%: V RMSE =   77.3 mV, SOC RMSE =  0.00 %
+  UDDS SOH 85%: V RMSE =  105.3 mV, SOC RMSE =  0.00 %
+  UDDS SOH 80%: V RMSE =  133.4 mV, SOC RMSE =  0.00 %
+  HWFET SOH 100%: V RMSE =   80.1 mV, SOC RMSE =  0.00 %
+  HWFET SOH 95%: V RMSE =   96.7 mV, SOC RMSE =  0.00 %
+  HWFET SOH 90%: V RMSE =  122.3 mV, SOC RMSE =  0.00 %
+  HWFET SOH 85%: V RMSE =  148.4 mV, SOC RMSE =  0.00 %
+  HWFET SOH 80%: V RMSE =  167.5 mV, SOC RMSE =  0.00 %

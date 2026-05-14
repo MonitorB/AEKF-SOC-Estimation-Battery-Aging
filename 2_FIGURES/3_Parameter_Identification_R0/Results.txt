@@ -1,0 +1,107 @@
+SOH 100%: 19 short pulses detected
+  1C pulse: SOC=1.00  R0=0.17251 Ohm
+  1C pulse: SOC=0.87  R0=0.14939 Ohm
+  1C pulse: SOC=0.74  R0=0.15341 Ohm
+  1C pulse: SOC=0.61  R0=0.15811 Ohm
+  1C pulse: SOC=0.48  R0=0.16331 Ohm
+  1C pulse: SOC=0.35  R0=0.16900 Ohm
+  1C pulse: SOC=0.22  R0=0.17530 Ohm
+  1C pulse: SOC=0.09  R0=0.18233 Ohm
+  1C pulse: SOC=0.00  R0=0.19014 Ohm
+  Average R0 = 0.16817 Ohm
+
+SOH 95%: 19 short pulses detected
+  1C pulse: SOC=1.00  R0=0.39612 Ohm
+  1C pulse: SOC=0.86  R0=0.39387 Ohm
+  1C pulse: SOC=0.72  R0=0.39340 Ohm
+  1C pulse: SOC=0.59  R0=0.39397 Ohm
+  1C pulse: SOC=0.45  R0=0.39521 Ohm
+  1C pulse: SOC=0.32  R0=0.39711 Ohm
+  1C pulse: SOC=0.18  R0=0.39973 Ohm
+  1C pulse: SOC=0.04  R0=0.40301 Ohm
+  1C pulse: SOC=0.00  R0=0.40730 Ohm
+  Average R0 = 0.39775 Ohm
+
+SOH 90%: 19 short pulses detected
+  1C pulse: SOC=1.00  R0=0.44603 Ohm
+  1C pulse: SOC=0.85  R0=0.44405 Ohm
+  1C pulse: SOC=0.71  R0=0.44353 Ohm
+  1C pulse: SOC=0.56  R0=0.44394 Ohm
+  1C pulse: SOC=0.42  R0=0.44481 Ohm
+  1C pulse: SOC=0.28  R0=0.44650 Ohm
+  1C pulse: SOC=0.13  R0=0.44883 Ohm
+  1C pulse: SOC=0.00  R0=0.45181 Ohm
+  1C pulse: SOC=0.00  R0=0.45575 Ohm
+  Average R0 = 0.44725 Ohm
+
+SOH 85%: 19 short pulses detected
+  1C pulse: SOC=1.00  R0=0.48663 Ohm
+  1C pulse: SOC=0.84  R0=0.48469 Ohm
+  1C pulse: SOC=0.69  R0=0.48408 Ohm
+  1C pulse: SOC=0.54  R0=0.48434 Ohm
+  1C pulse: SOC=0.39  R0=0.48498 Ohm
+  1C pulse: SOC=0.23  R0=0.48651 Ohm
+  1C pulse: SOC=0.08  R0=0.48863 Ohm
+  1C pulse: SOC=0.00  R0=0.49138 Ohm
+  1C pulse: SOC=0.00  R0=0.49505 Ohm
+  Average R0 = 0.48737 Ohm
+
+SOH 80%: 19 short pulses detected
+  1C pulse: SOC=0.99  R0=0.52078 Ohm
+  1C pulse: SOC=0.83  R0=0.51884 Ohm
+  1C pulse: SOC=0.67  R0=0.51802 Ohm
+  1C pulse: SOC=0.51  R0=0.51819 Ohm
+  1C pulse: SOC=0.35  R0=0.51880 Ohm
+  1C pulse: SOC=0.19  R0=0.52020 Ohm
+  1C pulse: SOC=0.03  R0=0.52215 Ohm
+  1C pulse: SOC=0.00  R0=0.52474 Ohm
+  1C pulse: SOC=0.00  R0=0.52820 Ohm
+  Average R0 = 0.52110 Ohm
+
+Saved 2D table to 2rc_parameters/ecm_r0_2d.csv
+ SOH (%)    SOC  R0 (Ohm)
+     100 0.9958  0.172513
+     100 0.8665  0.149391
+     100 0.7373  0.153414
+     100 0.6080  0.158108
+     100 0.4787  0.163313
+     100 0.3494  0.169005
+     100 0.2201  0.175305
+     100 0.0908  0.182328
+     100 0.0000  0.190144
+      95 0.9956  0.396120
+      95 0.8595  0.393869
+      95 0.7234  0.393403
+      95 0.5873  0.393969
+      95 0.4513  0.395207
+      95 0.3152  0.397114
+      95 0.1791  0.399735
+      95 0.0430  0.403006
+      95 0.0000  0.407304
+      90 0.9954  0.446030
+      90 0.8517  0.444052
+      90 0.7081  0.443532
+      90 0.5644  0.443944
+      90 0.4208  0.444813
+      90 0.2771  0.446500
+      90 0.1335  0.448834
+      90 0.0000  0.451810
+      90 0.0000  0.455750
+      85 0.9951  0.486627
+      85 0.8430  0.484687
+      85 0.6909  0.484082
+      85 0.5388  0.484343
+      85 0.3867  0.484984
+      85 0.2346  0.486512
+      85 0.0825  0.488628
+      85 0.0000  0.491384
+      85 0.0000  0.495050
+      80 0.9948  0.520782
+      80 0.8332  0.518841
+      80 0.6716  0.518019
+      80 0.5100  0.518189
+      80 0.3484  0.518801
+      80 0.1868  0.520199
+      80 0.0252  0.522150
+      80 0.0000  0.524742
+      80 0.0000  0.528204

@@ -1,0 +1,22 @@
+Loading ECM parameter tables...
+Loaded ECM parameters:
+  SOH grid: [100.  95.  90.  85.  80.]
+  SOC grid: [0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+  R0 range: 0.1515 - 0.5208 Ohm
+  R1 range: 0.0054 - 0.0309 Ohm
+  R2 range: 0.0025 - 0.0269 Ohm
+
+Running AEKF (initial SOC guess = 0.85, true = 1.00)
+----------------------------------------------------------------------
+Cycle   SOH     Converge [s]   SOC RMSE [%]   V RMSE [mV]    
+----------------------------------------------------------------------
+UDDS    100     1.0            1.035          10.5           
+UDDS    95      1.0            0.196          11.6           
+UDDS    90      1.0            0.374          12.5           
+UDDS    85      1.0            0.646          15.5           
+UDDS    80      1.0            1.190          18.9           
+HWFET   100     1.0            1.409          16.0           
+HWFET   95      1.0            1.068          22.8           
+HWFET   90      1.0            1.923          27.1           
+HWFET   85      1.0            1.954          32.9           
+HWFET   80      1.0            2.398          37.3           
