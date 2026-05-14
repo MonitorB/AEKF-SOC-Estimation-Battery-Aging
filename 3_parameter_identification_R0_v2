@@ -1,0 +1,147 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+
+# ============================================================
+# CONFIG
+# ============================================================
+soh_levels = ["100", "95", "90", "85", "80"]
+nominal_capacity = 0.68  # Ah
+
+C_RATE_THRESHOLDS = {
+    "0.5C": (0.2, 0.5),
+    "1C":   (0.5, 1.0),
+    "2C":   (1.0, 2.0),
+}
+
+os.makedirs("2rc_parameters", exist_ok=True)
+
+# ============================================================
+# MAIN LOOP
+# ============================================================
+all_records = []       # for 2D SOH x SOC table
+soh_avg_r0  = {}       # for SOH vs avg R0 plot
+
+
+for soh in soh_levels:
+    df = pd.read_csv(os.path.join("hppc_data", f"HPPC_SOH{soh}.csv"))
+    time_s  = df["Time [h]"].values * 3600
+    voltage = df["Voltage [V]"].values
+    current = df["Current [A]"].values
+    abs_I   = np.abs(current)
+    actual_capacity = nominal_capacity * (int(soh) / 100)
+
+    # ---- SOC tracking ----
+    discharge_I      = np.where(current > 0.01, current, 0)
+    dt               = np.diff(time_s, prepend=time_s[0])
+    charge_discharged = np.cumsum(discharge_I * dt / 3600)
+
+    # ---- Detect short pulses (< 60s) ----
+    short_pulses = []
+    in_pulse = False
+    p_start  = 0
+
+    for i in range(1, len(current)):
+        if not in_pulse and current[i] > 0.1 and current[i-1] < 0.1:
+            in_pulse = True
+            p_start  = i
+        elif in_pulse and current[i] < 0.1:
+            in_pulse = False
+            p_end    = i
+            duration = time_s[p_end] - time_s[p_start]
+            if duration < 60:
+                I_avg = np.mean(abs_I[p_start:p_end])
+                for label, (lo, hi) in C_RATE_THRESHOLDS.items():
+                    if lo < I_avg < hi:
+                        short_pulses.append((p_start, p_end, label))
+                        break
+
+    print(f"\nSOH {soh}%: {len(short_pulses)} short pulses detected")
+
+    # ---- Extract R0 from 1C pulses only ----
+    soc_vals = []
+    r0_vals  = []
+
+    for (ps, pe, label) in short_pulses:
+        if label != "1C":
+            continue
+
+        V_before = voltage[ps - 1]
+        V_during = voltage[ps + 2]
+        I_before = abs_I[ps - 1]
+        I_during = abs_I[ps + 2]
+        delta_I  = I_during - I_before
+
+        if delta_I < 0.1:
+            continue
+
+        R0 = abs(V_before - V_during) / delta_I
+
+        soc_here = 1.0 - (charge_discharged[ps] / actual_capacity)
+        soc_here = np.clip(soc_here, 0, 1)
+
+        soc_vals.append(soc_here)
+        r0_vals.append(R0)
+
+        print(f"  1C pulse: SOC={soc_here:.2f}  R0={R0:.5f} Ohm")
+
+        # Store record for 2D table
+        all_records.append({
+            "SOH (%)": int(soh),
+            "SOC":     round(soc_here, 4),
+            "R0 (Ohm)": round(R0, 6)
+        })
+
+    if r0_vals:
+        avg_r0 = np.mean(r0_vals)
+        soh_avg_r0[soh] = avg_r0
+        print(f"  Average R0 = {avg_r0:.5f} Ohm")
+
+
+# ============================================================
+# SAVE 2D CSV (SOH x SOC)
+# ============================================================
+df_2d = pd.DataFrame(all_records)
+df_2d = df_2d.sort_values(["SOH (%)", "SOC"], ascending=[False, False])
+df_2d.to_csv(os.path.join("2rc_parameters", "ecm_r0_2d.csv"), index=False)
+print("\nSaved 2D table to 2rc_parameters/ecm_r0_2d.csv")
+print(df_2d.to_string(index=False))
+
+df_2d = df_2d.drop_duplicates(subset=["SOH (%)", "SOC"], keep="first")
+df_2d.to_csv(os.path.join("2rc_parameters", "ecm_r0_2d.csv"), index=False)
+
+# ============================================================
+# PLOT 1 — Individual R0 vs SOC plots per SOH state
+# ============================================================
+colors = ['steelblue', 'darkorange', 'green', 'crimson', 'purple']
+
+for idx, soh in enumerate(soh_levels):
+    subset = df_2d[df_2d["SOH (%)"] == int(soh)].sort_values("SOC", ascending=True)
+    
+    plt.figure(figsize=(8, 5))
+    plt.plot(subset["SOC"], subset["R0 (Ohm)"], 'o-',
+             color=colors[idx], linewidth=2, markersize=7)
+    plt.title(f"R0 vs SOC — SOH {soh}%")
+    plt.xlabel("SOC")
+    plt.ylabel("R0 (Ohm)")
+    plt.grid(True)
+    plt.gca().invert_xaxis()
+    plt.tight_layout()
+    plt.show()
+
+# ============================================================
+# PLOT 2 — Average R0 vs SOH
+# ============================================================
+soh_nums    = [int(s) for s in soh_levels if s in soh_avg_r0]
+avg_r0_vals = [soh_avg_r0[s] for s in soh_levels if s in soh_avg_r0]
+
+plt.figure(figsize=(8, 5))
+plt.plot(soh_nums, avg_r0_vals, 'o-', color='steelblue', linewidth=2, markersize=8)
+plt.xlabel("SOH (%)")
+plt.ylabel("Average R0 (Ohm)")
+plt.title("Internal Resistance R0 vs SOH")
+plt.gca().invert_xaxis()
+plt.grid(True)
+plt.tight_layout()
+plt.show()

@@ -1,0 +1,64 @@
+{
+  "objective": {
+    "formula": "J = mean(SOC_RMSE_pct) + lambda_v * mean(V_RMSE_mV)",
+    "lambda_v": 0.05
+  },
+  "best_params": {
+    "R_INIT": 3.04895025775358e-05,
+    "R_MIN": 6.276052863910388e-07,
+    "Q_SOC_INIT": 8.667023582093448e-15,
+    "Q_SOC_MAX": 2.7671671065134328e-08
+  },
+  "best_metrics": {
+    "J": 1.3763491653396627,
+    "mean_soc_rmse_pct": 0.784312013546137,
+    "mean_v_rmse_mV": 11.840743035870512
+  },
+  "per_case": {
+    "UDDS_SOH100": {
+      "soc_rmse_pct": 0.42887846658527984,
+      "v_rmse_mV": 7.6527442281277125
+    },
+    "UDDS_SOH95": {
+      "soc_rmse_pct": 0.6820284624651815,
+      "v_rmse_mV": 6.935663345891925
+    },
+    "UDDS_SOH90": {
+      "soc_rmse_pct": 1.0098065812934136,
+      "v_rmse_mV": 6.417655571307046
+    },
+    "UDDS_SOH85": {
+      "soc_rmse_pct": 0.7191869328301727,
+      "v_rmse_mV": 6.139868062104463
+    },
+    "UDDS_SOH80": {
+      "soc_rmse_pct": 0.6564984063734195,
+      "v_rmse_mV": 6.0386091626899425
+    },
+    "HWFET_SOH100": {
+      "soc_rmse_pct": 0.7299272536910671,
+      "v_rmse_mV": 10.73518677570493
+    },
+    "HWFET_SOH95": {
+      "soc_rmse_pct": 1.0185865844240036,
+      "v_rmse_mV": 10.830106156417477
+    },
+    "HWFET_SOH90": {
+      "soc_rmse_pct": 0.9822078444359512,
+      "v_rmse_mV": 12.503908843038692
+    },
+    "HWFET_SOH85": {
+      "soc_rmse_pct": 0.760746406385095,
+      "v_rmse_mV": 23.580784100208746
+    },
+    "HWFET_SOH80": {
+      "soc_rmse_pct": 0.8552531969777853,
+      "v_rmse_mV": 27.572904113214182
+    }
+  },
+  "pso": {
+    "particles": 30,
+    "iters": 50,
+    "seed": 42
+  }
+}
